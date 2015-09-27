@@ -3,8 +3,8 @@
 
 package io.grpc.examples.helloworld;
 
-public final class HelloWorldProto {
-  private HelloWorldProto() {}
+public final class GRPCProto {
+  private GRPCProto() {}
   public static void registerAllExtensions(
       com.google.protobuf.ExtensionRegistry registry) {
   }

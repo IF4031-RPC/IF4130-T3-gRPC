@@ -3,7 +3,7 @@
 
 package io.grpc.examples.helloworld;
 
-public interface HelloResponseOrBuilder extends
+public interface GRPCResponseOrBuilder extends
     // @@protoc_insertion_point(interface_extends:helloworld.HelloResponse)
     com.google.protobuf.MessageOrBuilder {
 

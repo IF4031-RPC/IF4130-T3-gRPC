@@ -12,4 +12,9 @@ package io.grpc.examples.helloworld;
 public class ChannelLastMsg {
     public String channel;
     public int lastID;
+    
+    public ChannelLastMsg(int lastID_, String channel_) {
+        channel = channel_;
+        lastID = lastID_;
+    }
 }

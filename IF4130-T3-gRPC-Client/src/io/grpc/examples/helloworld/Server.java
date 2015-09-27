@@ -49,8 +49,8 @@ import org.bson.Document;
 /**
  * Server that manages startup/shutdown of a {@code Greeter} server.
  */
-public class HelloWorldServer {
-    private static final Logger logger = Logger.getLogger(HelloWorldServer.class.getName());
+public class Server {
+    private static final Logger logger = Logger.getLogger(Server.class.getName());
   
   /* Db Config */
     MongoClient mongoClient = new MongoClient("localhost");
@@ -70,7 +70,7 @@ public class HelloWorldServer {
         public void run() {
           // Use stderr here since the logger may have been reset by its JVM shutdown hook.
           System.err.println("*** shutting down gRPC server since JVM is shutting down");
-          HelloWorldServer.this.stop();
+          Server.this.stop();
           System.err.println("*** server shut down");
         }
       });
@@ -86,15 +86,15 @@ public class HelloWorldServer {
      * Main launches the server from the command line.
      */
     public static void main(String[] args) throws Exception {
-      final HelloWorldServer server = new HelloWorldServer();
+      final Server server = new Server();
       server.start();
     }
 
     private class GreeterImpl implements GreeterGrpc.Greeter {
 
       @Override
-      public void sayHello(HelloRequest req, StreamObserver<HelloResponse> responseObserver) {
-          HelloResponse reply = HelloResponse.newBuilder().setMessage("Hello " + req.getToken() + req.getMessage()).build();
+      public void sayHello(GRPCRequest req, StreamObserver<GRPCResponse> responseObserver) {
+          GRPCResponse reply = GRPCResponse.newBuilder().setMessage("Hello " + req.getToken() + req.getMessage()).build();
           responseObserver.onValue(reply);
           responseObserver.onCompleted();
       }
