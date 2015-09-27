@@ -89,6 +89,9 @@ public class Client {
         MessageRequest request = MessageRequest.newBuilder()
                                   .setToken(token)
                                   .build();
+        if (clm.size() == 0) {
+            System.out.println("Kosong");
+        }
         for (int i = 0; i < clm.size(); i++) {
             request.toBuilder().setClm(i, clm.get(i)).build();
         }
