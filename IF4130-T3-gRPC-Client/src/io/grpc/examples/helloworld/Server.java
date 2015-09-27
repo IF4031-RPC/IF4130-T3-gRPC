@@ -98,7 +98,14 @@ public class Server {
           responseObserver.onValue(reply);
           responseObserver.onCompleted();
       }
-
+      
+      @Override
+        public void getMessage(MessageRequest request, StreamObserver<GRPCResponse> responseObserver) {
+            GRPCResponse reply = GRPCResponse.newBuilder().setMessage(getMessage(request.getClmList(), request.getToken())).build();
+            responseObserver.onValue(reply);
+            responseObserver.onCompleted();
+        }
+      
       public String regNick(String token, String nick) {
           if (token.equals("") && nick != null) {
               if (isNickExist(nick)) {
@@ -331,10 +338,5 @@ public class Server {
   //        return true;
           throw new UnsupportedOperationException("Not supported yet.");
       }
-
-        @Override
-        public void getMessage(MessageRequest request, StreamObserver<GRPCResponse> responseObserver) {
-            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        }
     }
 }

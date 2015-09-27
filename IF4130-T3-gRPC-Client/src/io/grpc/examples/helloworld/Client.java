@@ -93,10 +93,10 @@ public class Client {
             request.toBuilder().setClm(i, clm.get(i)).build();
         }
         GRPCResponse response = blockingStub.getMessage(request);
-        logger.info("Greeting: " + response.getMessage());
+        //logger.info("Greeting: " + response.getMessage());
         return "halo";
       } catch (RuntimeException e) {
-        logger.log(Level.WARNING, "RPC failed", e);
+        logger.log(Level.WARNING, "RPC failed2", e);
         return "fail";
       }
     }
