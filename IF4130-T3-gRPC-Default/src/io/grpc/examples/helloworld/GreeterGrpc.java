@@ -18,8 +18,7 @@ public class GreeterGrpc {
   // Static method descriptors that strictly reflect the proto.
   public static final io.grpc.MethodDescriptor<io.grpc.examples.helloworld.HelloRequest,
       io.grpc.examples.helloworld.HelloResponse> METHOD_SAY_HELLO =
-      io.grpc.MethodDescriptor.create(
-          io.grpc.MethodDescriptor.MethodType.UNARY,
+      io.grpc.MethodDescriptor.create(io.grpc.MethodDescriptor.MethodType.UNARY,
           "helloworld.Greeter", "SayHello",
           io.grpc.protobuf.ProtoUtils.marshaller(io.grpc.examples.helloworld.HelloRequest.parser()),
           io.grpc.protobuf.ProtoUtils.marshaller(io.grpc.examples.helloworld.HelloResponse.parser()));
@@ -132,10 +131,8 @@ public class GreeterGrpc {
   public static io.grpc.ServerServiceDefinition bindService(
       final Greeter serviceImpl) {
     return io.grpc.ServerServiceDefinition.builder("helloworld.Greeter")
-      .addMethod(io.grpc.ServerMethodDefinition.create(
-          METHOD_SAY_HELLO,
-          asyncUnaryCall(
-            new io.grpc.stub.ServerCalls.UnaryMethod<
+      .addMethod(io.grpc.ServerMethodDefinition.create(METHOD_SAY_HELLO,
+          asyncUnaryCall(new io.grpc.stub.ServerCalls.UnaryMethod<
                 io.grpc.examples.helloworld.HelloRequest,
                 io.grpc.examples.helloworld.HelloResponse>() {
               @java.lang.Override

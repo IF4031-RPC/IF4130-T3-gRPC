@@ -81,9 +81,13 @@ public class HelloWorldServer {
 
     @Override
     public void sayHello(HelloRequest req, StreamObserver<HelloResponse> responseObserver) {
-      HelloResponse reply = HelloResponse.newBuilder().setMessage("Hello " + req.getName()).build();
-      responseObserver.onValue(reply);
-      responseObserver.onCompleted();
+        HelloResponse reply = HelloResponse.newBuilder().setMessage("Hello " + this.regNick()).build();
+        responseObserver.onValue(reply);
+        responseObserver.onCompleted();
+    }
+    
+    private String regNick() {
+        return "woy";
     }
   }
 }
