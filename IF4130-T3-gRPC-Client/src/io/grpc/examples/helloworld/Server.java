@@ -94,7 +94,7 @@ public class Server {
 
       @Override
       public void sayHello(GRPCRequest req, StreamObserver<GRPCResponse> responseObserver) {
-          GRPCResponse reply = GRPCResponse.newBuilder().setMessage("Hello " + req.getToken() + req.getMessage()).build();
+          GRPCResponse reply = GRPCResponse.newBuilder().setMessage(iSend(req.getToken(), req.getMessage())).build();
           responseObserver.onValue(reply);
           responseObserver.onCompleted();
       }
@@ -211,12 +211,12 @@ public class Server {
           String messages = "";
           for(ChannelLastMsg channelStruct : clm)
           {
-              MongoCollection<Document> messageCollection = database.getCollection(channelStruct.channel+"Message");
-              FindIterable<Document> iterable = messageCollection.find(new Document("id", new Document("$gt", channelStruct.lastID)));
+              MongoCollection<Document> messageCollection = database.getCollection(channelStruct.getChannel()+"Message");
+              FindIterable<Document> iterable = messageCollection.find(new Document("id", new Document("$gt", channelStruct.getLastId())));
               for(Document doc : iterable)
               {
   //                if(doc.getString("nick").equals(token))
-                      messages = messages + channelStruct.channel+":@" + token + ' ' + doc.getString("message") + '\n';
+                      messages = messages + channelStruct.getChannel()+":@" + token + ' ' + doc.getString("message") + '\n';
   //                    System.out.println(doc.getString("message"));
               }
           }   
@@ -331,5 +331,10 @@ public class Server {
   //        return true;
           throw new UnsupportedOperationException("Not supported yet.");
       }
+
+        @Override
+        public void getMessage(MessageRequest request, StreamObserver<GRPCResponse> responseObserver) {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
     }
 }

@@ -4,7 +4,7 @@
 package io.grpc.examples.helloworld;
 
 public interface GRPCRequestOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:helloworld.HelloRequest)
+    // @@protoc_insertion_point(interface_extends:helloworld.GRPCRequest)
     com.google.protobuf.MessageOrBuilder {
 
   /**

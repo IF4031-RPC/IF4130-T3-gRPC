@@ -4,7 +4,7 @@
 package io.grpc.examples.helloworld;
 
 /**
- * Protobuf type {@code helloworld.HelloResponse}
+ * Protobuf type {@code helloworld.GRPCResponse}
  *
  * <pre>
  * The response message containing the greetings
@@ -12,9 +12,9 @@ package io.grpc.examples.helloworld;
  */
 public  final class GRPCResponse extends
     com.google.protobuf.GeneratedMessage implements
-    // @@protoc_insertion_point(message_implements:helloworld.HelloResponse)
+    // @@protoc_insertion_point(message_implements:helloworld.GRPCResponse)
     GRPCResponseOrBuilder {
-  // Use HelloResponse.newBuilder() to construct.
+  // Use GRPCResponse.newBuilder() to construct.
   private GRPCResponse(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
     super(builder);
   }
@@ -66,13 +66,14 @@ public  final class GRPCResponse extends
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return io.grpc.examples.helloworld.GRPCProto.internal_static_helloworld_HelloResponse_descriptor;
+    return io.grpc.examples.helloworld.HelloWorldProto.internal_static_helloworld_GRPCResponse_descriptor;
   }
 
   protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return io.grpc.examples.helloworld.GRPCProto.internal_static_helloworld_HelloResponse_fieldAccessorTable
-        .ensureFieldAccessorsInitialized(io.grpc.examples.helloworld.GRPCResponse.class, io.grpc.examples.helloworld.GRPCResponse.Builder.class);
+    return io.grpc.examples.helloworld.HelloWorldProto.internal_static_helloworld_GRPCResponse_fieldAccessorTable
+        .ensureFieldAccessorsInitialized(
+            io.grpc.examples.helloworld.GRPCResponse.class, io.grpc.examples.helloworld.GRPCResponse.Builder.class);
   }
 
   public static final int MESSAGE_FIELD_NUMBER = 1;
@@ -211,7 +212,7 @@ public  final class GRPCResponse extends
     return builder;
   }
   /**
-   * Protobuf type {@code helloworld.HelloResponse}
+   * Protobuf type {@code helloworld.GRPCResponse}
    *
    * <pre>
    * The response message containing the greetings
@@ -219,20 +220,21 @@ public  final class GRPCResponse extends
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessage.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:helloworld.HelloResponse)
+      // @@protoc_insertion_point(builder_implements:helloworld.GRPCResponse)
       io.grpc.examples.helloworld.GRPCResponseOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return io.grpc.examples.helloworld.GRPCProto.internal_static_helloworld_HelloResponse_descriptor;
+      return io.grpc.examples.helloworld.HelloWorldProto.internal_static_helloworld_GRPCResponse_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return io.grpc.examples.helloworld.GRPCProto.internal_static_helloworld_HelloResponse_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(io.grpc.examples.helloworld.GRPCResponse.class, io.grpc.examples.helloworld.GRPCResponse.Builder.class);
+      return io.grpc.examples.helloworld.HelloWorldProto.internal_static_helloworld_GRPCResponse_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.grpc.examples.helloworld.GRPCResponse.class, io.grpc.examples.helloworld.GRPCResponse.Builder.class);
     }
 
-    // Construct using io.grpc.examples.helloworld.HelloResponse.newBuilder()
+    // Construct using io.grpc.examples.helloworld.GRPCResponse.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -255,7 +257,7 @@ public  final class GRPCResponse extends
 
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return io.grpc.examples.helloworld.GRPCProto.internal_static_helloworld_HelloResponse_descriptor;
+      return io.grpc.examples.helloworld.HelloWorldProto.internal_static_helloworld_GRPCResponse_descriptor;
     }
 
     public io.grpc.examples.helloworld.GRPCResponse getDefaultInstanceForType() {
@@ -263,7 +265,7 @@ public  final class GRPCResponse extends
     }
 
     public io.grpc.examples.helloworld.GRPCResponse build() {
-            io.grpc.examples.helloworld.GRPCResponse result = buildPartial();
+      io.grpc.examples.helloworld.GRPCResponse result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -271,7 +273,7 @@ public  final class GRPCResponse extends
     }
 
     public io.grpc.examples.helloworld.GRPCResponse buildPartial() {
-            io.grpc.examples.helloworld.GRPCResponse result = new io.grpc.examples.helloworld.GRPCResponse(this);
+      io.grpc.examples.helloworld.GRPCResponse result = new io.grpc.examples.helloworld.GRPCResponse(this);
       result.message_ = message_;
       onBuilt();
       return result;
@@ -304,7 +306,7 @@ public  final class GRPCResponse extends
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-            io.grpc.examples.helloworld.GRPCResponse parsedMessage = null;
+      io.grpc.examples.helloworld.GRPCResponse parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -397,10 +399,10 @@ public  final class GRPCResponse extends
     }
 
 
-    // @@protoc_insertion_point(builder_scope:helloworld.HelloResponse)
+    // @@protoc_insertion_point(builder_scope:helloworld.GRPCResponse)
   }
 
-  // @@protoc_insertion_point(class_scope:helloworld.HelloResponse)
+  // @@protoc_insertion_point(class_scope:helloworld.GRPCResponse)
   private static final io.grpc.examples.helloworld.GRPCResponse DEFAULT_INSTANCE;
   static {
     DEFAULT_INSTANCE = new io.grpc.examples.helloworld.GRPCResponse();

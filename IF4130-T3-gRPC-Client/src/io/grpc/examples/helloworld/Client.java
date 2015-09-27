@@ -84,6 +84,23 @@ public class Client {
       }
     }
     
+    public String greet(ArrayList<ChannelLastMsg> clm, String token) {
+      try {
+        MessageRequest request = MessageRequest.newBuilder()
+                                  .setToken(token)
+                                  .build();
+        for (int i = 0; i < clm.size(); i++) {
+            request.toBuilder().setClm(i, clm.get(i)).build();
+        }
+        GRPCResponse response = blockingStub.getMessage(request);
+        logger.info("Greeting: " + response.getMessage());
+        return "halo";
+      } catch (RuntimeException e) {
+        logger.log(Level.WARNING, "RPC failed", e);
+        return "fail";
+      }
+    }
+    
     /**
      * Greet server. If provided, the first element of {@code args} is the name to use in the
      * greeting.
@@ -130,9 +147,12 @@ public class Client {
                     break;
                 case "/JOIN": 
                     System.out.println(client.greet(client.token, command));
-                    if (client.list.add(new ChannelLastMsg(0, com[1]))) {
+                    ChannelLastMsg clm = ChannelLastMsg.newBuilder().
+                                                                setChannel(com[1]).
+                                                                setLastId(0).build();
+                    if (client.list.add(clm)) {
                         System.out.println("Sukses nambahin channel ke client");
-                        System.out.println(client.list.get(0).channel);
+                        System.out.println(client.list.get(0).getChannel());
                     }
                     
                     break;
@@ -156,7 +176,7 @@ public class Client {
         while(itr.hasNext())
         {
             ChannelLastMsg clm = (ChannelLastMsg)itr.next();
-            if(clm.channel.equals(channel))
+            if(clm.getChannel().equals(channel))
             {
                 itr.remove();
                 break;
@@ -190,19 +210,18 @@ class PrintRunnable implements Runnable {
     {
         while (true) {
             try{
-//                String a = client.getMessage(Client.list, Client.token); //getMessage
-//                if(!a.equals(""))
-//                {
-//                    String [] messages = a.split("\n");
-//                    for(String message : messages)
-//                    {
-//                        int channelIndex = message.indexOf(":");
-//                        String channelName = message.substring(0, channelIndex);
-//                        lastIDIncrement(Client.list, channelName);
-//                    }
-//                    System.out.println(a);
-//                }
-                  System.out.println("hehe");
+                String a = client.greet(client.list, client.token); //getMessage
+                if(!a.equals(""))
+                {
+                    String [] messages = a.split("\n");
+                    for(String message : messages)
+                    {
+                        int channelIndex = message.indexOf(":");
+                        String channelName = message.substring(0, channelIndex);
+                        lastIDIncrement(client.list, channelName);
+                    }
+                    System.out.println(a);
+                }
             }
             catch(Exception e)
             {
@@ -216,9 +235,9 @@ class PrintRunnable implements Runnable {
         while(itr.hasNext())
         {
             ChannelLastMsg clm = (ChannelLastMsg)itr.next();
-            if(clm.channel.equals(channel))
+            if(clm.getChannel().equals(channel))
             {
-                clm.lastID++;
+                clm.toBuilder().setLastId(clm.getLastId() + 1);
                 break;
             }
         }
