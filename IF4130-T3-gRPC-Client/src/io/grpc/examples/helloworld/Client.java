@@ -89,7 +89,8 @@ public class Client {
      * greeting.
      */
     public static void main(String[] args) throws Exception {
-      
+        new Thread(new ReadRunnable()).start();
+        new Thread(new PrintRunnable()).start();
     }
 }
 
