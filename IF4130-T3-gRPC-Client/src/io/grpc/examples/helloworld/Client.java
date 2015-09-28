@@ -70,14 +70,13 @@ public class Client {
     /** Say hello to server. */
     public String greet(String name, String message) {
       try {
-        logger.info("Will try to greet " + name + " ...");
         GRPCRequest request = GRPCRequest.newBuilder()
                                   .setToken(name)
                                   .setMessage(message)
                                   .build();
         GRPCResponse response = blockingStub.sayHello(request);
-        logger.info("Greeting: " + response.getMessage());
-        return "halo";
+        
+        return response.getMessage();
       } catch (RuntimeException e) {
         logger.log(Level.WARNING, "RPC failed", e);
         return "fail";
@@ -89,15 +88,12 @@ public class Client {
         MessageRequest request = MessageRequest.newBuilder()
                                   .setToken(token)
                                   .build();
-        if (clm.size() == 0) {
-            System.out.println("Kosong");
-        }
         for (int i = 0; i < clm.size(); i++) {
-            request.toBuilder().setClm(i, clm.get(i)).build();
+            request.newBuilder().addClm(clm.get(i)).build();
         }
         GRPCResponse response = blockingStub.getMessage(request);
-        logger.info("Greeting: " + response.getMessage());
-        return "halo";
+          
+        return response.getMessage();
       } catch (RuntimeException e) {
         logger.log(Level.WARNING, "RPC failed2", e);
         return "fail";

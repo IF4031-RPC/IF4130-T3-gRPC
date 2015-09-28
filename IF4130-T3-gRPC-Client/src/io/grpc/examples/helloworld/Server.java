@@ -101,7 +101,8 @@ public class Server {
       
       @Override
         public void getMessage(MessageRequest request, StreamObserver<GRPCResponse> responseObserver) {
-            GRPCResponse reply = GRPCResponse.newBuilder().setMessage(getMessage(request.getClmList(), request.getToken())).build();
+            
+            GRPCResponse reply = GRPCResponse.newBuilder().setMessage(this.getMessage(request.getClmList(), request.getToken())).build();
             responseObserver.onValue(reply);
             responseObserver.onCompleted();
         }
