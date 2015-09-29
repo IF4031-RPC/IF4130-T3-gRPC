@@ -4,22 +4,19 @@
 package io.grpc.examples.helloworld;
 
 /**
- * Protobuf type {@code helloworld.HelloResponse}
- *
- * <pre>
- * The response message containing the greetings
- * </pre>
+ * Protobuf type {@code helloworld.ChannelLastMsg}
  */
-public  final class HelloResponse extends
+public  final class ChannelLastMsg extends
     com.google.protobuf.GeneratedMessage implements
-    // @@protoc_insertion_point(message_implements:helloworld.HelloResponse)
-    HelloResponseOrBuilder {
-  // Use HelloResponse.newBuilder() to construct.
-  private HelloResponse(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    // @@protoc_insertion_point(message_implements:helloworld.ChannelLastMsg)
+    ChannelLastMsgOrBuilder {
+  // Use ChannelLastMsg.newBuilder() to construct.
+  private ChannelLastMsg(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
     super(builder);
   }
-  private HelloResponse() {
-    message_ = "";
+  private ChannelLastMsg() {
+    channel_ = "";
+    lastId_ = 0;
   }
 
   @java.lang.Override
@@ -27,7 +24,7 @@ public  final class HelloResponse extends
   getUnknownFields() {
     return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
   }
-  private HelloResponse(
+  private ChannelLastMsg(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry) {
     this();
@@ -49,7 +46,12 @@ public  final class HelloResponse extends
           case 10: {
             String s = input.readStringRequireUtf8();
 
-            message_ = s;
+            channel_ = s;
+            break;
+          }
+          case 16: {
+
+            lastId_ = input.readInt32();
             break;
           }
         }
@@ -66,49 +68,64 @@ public  final class HelloResponse extends
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return io.grpc.examples.helloworld.HelloWorldProto.internal_static_helloworld_HelloResponse_descriptor;
+    return io.grpc.examples.helloworld.HelloWorldProto.internal_static_helloworld_ChannelLastMsg_descriptor;
   }
 
   protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return io.grpc.examples.helloworld.HelloWorldProto.internal_static_helloworld_HelloResponse_fieldAccessorTable
-        .ensureFieldAccessorsInitialized(io.grpc.examples.helloworld.HelloResponse.class, io.grpc.examples.helloworld.HelloResponse.Builder.class);
+    return io.grpc.examples.helloworld.HelloWorldProto.internal_static_helloworld_ChannelLastMsg_fieldAccessorTable
+        .ensureFieldAccessorsInitialized(
+            io.grpc.examples.helloworld.ChannelLastMsg.class, io.grpc.examples.helloworld.ChannelLastMsg.Builder.class);
   }
 
-  public static final int MESSAGE_FIELD_NUMBER = 1;
-  private volatile java.lang.Object message_;
+  public static final int CHANNEL_FIELD_NUMBER = 1;
+  private volatile java.lang.Object channel_;
   /**
-   * <code>optional string message = 1;</code>
+   * <code>optional string channel = 1;</code>
    */
-  public java.lang.String getMessage() {
-    java.lang.Object ref = message_;
+  public java.lang.String getChannel() {
+    java.lang.Object ref = channel_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      message_ = s;
+      channel_ = s;
       return s;
     }
   }
   /**
-   * <code>optional string message = 1;</code>
+   * <code>optional string channel = 1;</code>
    */
   public com.google.protobuf.ByteString
-      getMessageBytes() {
-    java.lang.Object ref = message_;
+      getChannelBytes() {
+    java.lang.Object ref = channel_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      message_ = b;
+      channel_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
     }
   }
 
+  public static final int LASTID_FIELD_NUMBER = 2;
+  private int lastId_;
+  /**
+   * <code>optional int32 lastId = 2;</code>
+   */
+  public int getLastId() {
+    return lastId_;
+  }
+
+  public void increaseLastId()
+  {
+      lastId_++;
+  }
+  
   private byte memoizedIsInitialized = -1;
   public final boolean isInitialized() {
     byte isInitialized = memoizedIsInitialized;
@@ -121,8 +138,11 @@ public  final class HelloResponse extends
 
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getMessageBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessage.writeString(output, 1, message_);
+    if (!getChannelBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessage.writeString(output, 1, channel_);
+    }
+    if (lastId_ != 0) {
+      output.writeInt32(2, lastId_);
     }
   }
 
@@ -131,61 +151,65 @@ public  final class HelloResponse extends
     if (size != -1) return size;
 
     size = 0;
-    if (!getMessageBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessage.computeStringSize(1, message_);
+    if (!getChannelBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessage.computeStringSize(1, channel_);
+    }
+    if (lastId_ != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(2, lastId_);
     }
     memoizedSize = size;
     return size;
   }
 
   private static final long serialVersionUID = 0L;
-  public static io.grpc.examples.helloworld.HelloResponse parseFrom(
+  public static io.grpc.examples.helloworld.ChannelLastMsg parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static io.grpc.examples.helloworld.HelloResponse parseFrom(
+  public static io.grpc.examples.helloworld.ChannelLastMsg parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static io.grpc.examples.helloworld.HelloResponse parseFrom(byte[] data)
+  public static io.grpc.examples.helloworld.ChannelLastMsg parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static io.grpc.examples.helloworld.HelloResponse parseFrom(
+  public static io.grpc.examples.helloworld.ChannelLastMsg parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static io.grpc.examples.helloworld.HelloResponse parseFrom(java.io.InputStream input)
+  public static io.grpc.examples.helloworld.ChannelLastMsg parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return PARSER.parseFrom(input);
   }
-  public static io.grpc.examples.helloworld.HelloResponse parseFrom(
+  public static io.grpc.examples.helloworld.ChannelLastMsg parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return PARSER.parseFrom(input, extensionRegistry);
   }
-  public static io.grpc.examples.helloworld.HelloResponse parseDelimitedFrom(java.io.InputStream input)
+  public static io.grpc.examples.helloworld.ChannelLastMsg parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return PARSER.parseDelimitedFrom(input);
   }
-  public static io.grpc.examples.helloworld.HelloResponse parseDelimitedFrom(
+  public static io.grpc.examples.helloworld.ChannelLastMsg parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return PARSER.parseDelimitedFrom(input, extensionRegistry);
   }
-  public static io.grpc.examples.helloworld.HelloResponse parseFrom(
+  public static io.grpc.examples.helloworld.ChannelLastMsg parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return PARSER.parseFrom(input);
   }
-  public static io.grpc.examples.helloworld.HelloResponse parseFrom(
+  public static io.grpc.examples.helloworld.ChannelLastMsg parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -196,7 +220,7 @@ public  final class HelloResponse extends
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(io.grpc.examples.helloworld.HelloResponse prototype) {
+  public static Builder newBuilder(io.grpc.examples.helloworld.ChannelLastMsg prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   public Builder toBuilder() {
@@ -211,28 +235,25 @@ public  final class HelloResponse extends
     return builder;
   }
   /**
-   * Protobuf type {@code helloworld.HelloResponse}
-   *
-   * <pre>
-   * The response message containing the greetings
-   * </pre>
+   * Protobuf type {@code helloworld.ChannelLastMsg}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessage.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:helloworld.HelloResponse)
-      io.grpc.examples.helloworld.HelloResponseOrBuilder {
+      // @@protoc_insertion_point(builder_implements:helloworld.ChannelLastMsg)
+      io.grpc.examples.helloworld.ChannelLastMsgOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return io.grpc.examples.helloworld.HelloWorldProto.internal_static_helloworld_HelloResponse_descriptor;
+      return io.grpc.examples.helloworld.HelloWorldProto.internal_static_helloworld_ChannelLastMsg_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return io.grpc.examples.helloworld.HelloWorldProto.internal_static_helloworld_HelloResponse_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(io.grpc.examples.helloworld.HelloResponse.class, io.grpc.examples.helloworld.HelloResponse.Builder.class);
+      return io.grpc.examples.helloworld.HelloWorldProto.internal_static_helloworld_ChannelLastMsg_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.grpc.examples.helloworld.ChannelLastMsg.class, io.grpc.examples.helloworld.ChannelLastMsg.Builder.class);
     }
 
-    // Construct using io.grpc.examples.helloworld.HelloResponse.newBuilder()
+    // Construct using io.grpc.examples.helloworld.ChannelLastMsg.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -248,49 +269,55 @@ public  final class HelloResponse extends
     }
     public Builder clear() {
       super.clear();
-      message_ = "";
+      channel_ = "";
+
+      lastId_ = 0;
 
       return this;
     }
 
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return io.grpc.examples.helloworld.HelloWorldProto.internal_static_helloworld_HelloResponse_descriptor;
+      return io.grpc.examples.helloworld.HelloWorldProto.internal_static_helloworld_ChannelLastMsg_descriptor;
     }
 
-    public io.grpc.examples.helloworld.HelloResponse getDefaultInstanceForType() {
-      return io.grpc.examples.helloworld.HelloResponse.getDefaultInstance();
+    public io.grpc.examples.helloworld.ChannelLastMsg getDefaultInstanceForType() {
+      return io.grpc.examples.helloworld.ChannelLastMsg.getDefaultInstance();
     }
 
-    public io.grpc.examples.helloworld.HelloResponse build() {
-            io.grpc.examples.helloworld.HelloResponse result = buildPartial();
+    public io.grpc.examples.helloworld.ChannelLastMsg build() {
+      io.grpc.examples.helloworld.ChannelLastMsg result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
       return result;
     }
 
-    public io.grpc.examples.helloworld.HelloResponse buildPartial() {
-            io.grpc.examples.helloworld.HelloResponse result = new io.grpc.examples.helloworld.HelloResponse(this);
-      result.message_ = message_;
+    public io.grpc.examples.helloworld.ChannelLastMsg buildPartial() {
+      io.grpc.examples.helloworld.ChannelLastMsg result = new io.grpc.examples.helloworld.ChannelLastMsg(this);
+      result.channel_ = channel_;
+      result.lastId_ = lastId_;
       onBuilt();
       return result;
     }
 
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof io.grpc.examples.helloworld.HelloResponse) {
-        return mergeFrom((io.grpc.examples.helloworld.HelloResponse)other);
+      if (other instanceof io.grpc.examples.helloworld.ChannelLastMsg) {
+        return mergeFrom((io.grpc.examples.helloworld.ChannelLastMsg)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(io.grpc.examples.helloworld.HelloResponse other) {
-      if (other == io.grpc.examples.helloworld.HelloResponse.getDefaultInstance()) return this;
-      if (!other.getMessage().isEmpty()) {
-        message_ = other.message_;
+    public Builder mergeFrom(io.grpc.examples.helloworld.ChannelLastMsg other) {
+      if (other == io.grpc.examples.helloworld.ChannelLastMsg.getDefaultInstance()) return this;
+      if (!other.getChannel().isEmpty()) {
+        channel_ = other.channel_;
         onChanged();
+      }
+      if (other.getLastId() != 0) {
+        setLastId(other.getLastId());
       }
       onChanged();
       return this;
@@ -304,11 +331,11 @@ public  final class HelloResponse extends
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-            io.grpc.examples.helloworld.HelloResponse parsedMessage = null;
+      io.grpc.examples.helloworld.ChannelLastMsg parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.grpc.examples.helloworld.HelloResponse) e.getUnfinishedMessage();
+        parsedMessage = (io.grpc.examples.helloworld.ChannelLastMsg) e.getUnfinishedMessage();
         throw e;
       } finally {
         if (parsedMessage != null) {
@@ -318,71 +345,97 @@ public  final class HelloResponse extends
       return this;
     }
 
-    private java.lang.Object message_ = "";
+    private java.lang.Object channel_ = "";
     /**
-     * <code>optional string message = 1;</code>
+     * <code>optional string channel = 1;</code>
      */
-    public java.lang.String getMessage() {
-      java.lang.Object ref = message_;
+    public java.lang.String getChannel() {
+      java.lang.Object ref = channel_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        message_ = s;
+        channel_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
       }
     }
     /**
-     * <code>optional string message = 1;</code>
+     * <code>optional string channel = 1;</code>
      */
     public com.google.protobuf.ByteString
-        getMessageBytes() {
-      java.lang.Object ref = message_;
+        getChannelBytes() {
+      java.lang.Object ref = channel_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        message_ = b;
+        channel_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
     /**
-     * <code>optional string message = 1;</code>
+     * <code>optional string channel = 1;</code>
      */
-    public Builder setMessage(
+    public Builder setChannel(
         java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
   
-      message_ = value;
+      channel_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>optional string message = 1;</code>
+     * <code>optional string channel = 1;</code>
      */
-    public Builder clearMessage() {
+    public Builder clearChannel() {
       
-      message_ = getDefaultInstance().getMessage();
+      channel_ = getDefaultInstance().getChannel();
       onChanged();
       return this;
     }
     /**
-     * <code>optional string message = 1;</code>
+     * <code>optional string channel = 1;</code>
      */
-    public Builder setMessageBytes(
+    public Builder setChannelBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
       
-      message_ = value;
+      channel_ = value;
+      onChanged();
+      return this;
+    }
+
+    private int lastId_ ;
+    /**
+     * <code>optional int32 lastId = 2;</code>
+     */
+    public int getLastId() {
+      return lastId_;
+    }
+    /**
+     * <code>optional int32 lastId = 2;</code>
+     */
+    public Builder setLastId(int value) {
+      
+      lastId_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>optional int32 lastId = 2;</code>
+     */
+    public Builder clearLastId() {
+      
+      lastId_ = 0;
       onChanged();
       return this;
     }
@@ -397,27 +450,27 @@ public  final class HelloResponse extends
     }
 
 
-    // @@protoc_insertion_point(builder_scope:helloworld.HelloResponse)
+    // @@protoc_insertion_point(builder_scope:helloworld.ChannelLastMsg)
   }
 
-  // @@protoc_insertion_point(class_scope:helloworld.HelloResponse)
-  private static final io.grpc.examples.helloworld.HelloResponse DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:helloworld.ChannelLastMsg)
+  private static final io.grpc.examples.helloworld.ChannelLastMsg DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new io.grpc.examples.helloworld.HelloResponse();
+    DEFAULT_INSTANCE = new io.grpc.examples.helloworld.ChannelLastMsg();
   }
 
-  public static io.grpc.examples.helloworld.HelloResponse getDefaultInstance() {
+  public static io.grpc.examples.helloworld.ChannelLastMsg getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<HelloResponse>
-      PARSER = new com.google.protobuf.AbstractParser<HelloResponse>() {
-    public HelloResponse parsePartialFrom(
+  private static final com.google.protobuf.Parser<ChannelLastMsg>
+      PARSER = new com.google.protobuf.AbstractParser<ChannelLastMsg>() {
+    public ChannelLastMsg parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       try {
-        return new HelloResponse(input, extensionRegistry);
+        return new ChannelLastMsg(input, extensionRegistry);
       } catch (RuntimeException e) {
         if (e.getCause() instanceof
             com.google.protobuf.InvalidProtocolBufferException) {
@@ -429,16 +482,16 @@ public  final class HelloResponse extends
     }
   };
 
-  public static com.google.protobuf.Parser<HelloResponse> parser() {
+  public static com.google.protobuf.Parser<ChannelLastMsg> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<HelloResponse> getParserForType() {
+  public com.google.protobuf.Parser<ChannelLastMsg> getParserForType() {
     return PARSER;
   }
 
-  public io.grpc.examples.helloworld.HelloResponse getDefaultInstanceForType() {
+  public io.grpc.examples.helloworld.ChannelLastMsg getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

@@ -9,15 +9,25 @@ public final class HelloWorldProto {
       com.google.protobuf.ExtensionRegistry registry) {
   }
   static com.google.protobuf.Descriptors.Descriptor
-    internal_static_helloworld_HelloRequest_descriptor;
+    internal_static_helloworld_GRPCRequest_descriptor;
   static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_helloworld_HelloRequest_fieldAccessorTable;
+      internal_static_helloworld_GRPCRequest_fieldAccessorTable;
   static com.google.protobuf.Descriptors.Descriptor
-    internal_static_helloworld_HelloResponse_descriptor;
+    internal_static_helloworld_MessageRequest_descriptor;
   static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_helloworld_HelloResponse_fieldAccessorTable;
+      internal_static_helloworld_MessageRequest_fieldAccessorTable;
+  static com.google.protobuf.Descriptors.Descriptor
+    internal_static_helloworld_ChannelLastMsg_descriptor;
+  static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_helloworld_ChannelLastMsg_fieldAccessorTable;
+  static com.google.protobuf.Descriptors.Descriptor
+    internal_static_helloworld_GRPCResponse_descriptor;
+  static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_helloworld_GRPCResponse_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -28,12 +38,17 @@ public final class HelloWorldProto {
   static {
     java.lang.String[] descriptorData = {
       "\n(example/src/main/proto/hello_world.pro" +
-      "to\022\nhelloworld\".\n\014HelloRequest\022\r\n\005token\030" +
-      "\001 \001(\t\022\017\n\007message\030\002 \001(\t\" \n\rHelloResponse\022" +
-      "\017\n\007message\030\001 \001(\t2L\n\007Greeter\022A\n\010SayHello\022" +
-      "\030.helloworld.HelloRequest\032\031.helloworld.H" +
-      "elloResponse\"\000B0\n\033io.grpc.examples.hello" +
-      "worldB\017HelloWorldProtoP\001b\006proto3"
+      "to\022\nhelloworld\"-\n\013GRPCRequest\022\r\n\005token\030\001" +
+      " \001(\t\022\017\n\007message\030\002 \001(\t\"H\n\016MessageRequest\022" +
+      "\'\n\003clm\030\001 \003(\0132\032.helloworld.ChannelLastMsg" +
+      "\022\r\n\005token\030\002 \001(\t\"1\n\016ChannelLastMsg\022\017\n\007cha" +
+      "nnel\030\001 \001(\t\022\016\n\006lastId\030\002 \001(\005\"\037\n\014GRPCRespon" +
+      "se\022\017\n\007message\030\001 \001(\t2\220\001\n\007Greeter\022?\n\010SayHe" +
+      "llo\022\027.helloworld.GRPCRequest\032\030.helloworl" +
+      "d.GRPCResponse\"\000\022D\n\nGetMessage\022\032.hellowo" +
+      "rld.MessageRequest\032\030.helloworld.GRPCResp",
+      "onse\"\000B0\n\033io.grpc.examples.helloworldB\017H" +
+      "elloWorldProtoP\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -47,17 +62,29 @@ public final class HelloWorldProto {
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         }, assigner);
-    internal_static_helloworld_HelloRequest_descriptor =
+    internal_static_helloworld_GRPCRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
-    internal_static_helloworld_HelloRequest_fieldAccessorTable = new
+    internal_static_helloworld_GRPCRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_helloworld_HelloRequest_descriptor,
+        internal_static_helloworld_GRPCRequest_descriptor,
         new java.lang.String[] { "Token", "Message", });
-    internal_static_helloworld_HelloResponse_descriptor =
+    internal_static_helloworld_MessageRequest_descriptor =
       getDescriptor().getMessageTypes().get(1);
-    internal_static_helloworld_HelloResponse_fieldAccessorTable = new
+    internal_static_helloworld_MessageRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_helloworld_HelloResponse_descriptor,
+        internal_static_helloworld_MessageRequest_descriptor,
+        new java.lang.String[] { "Clm", "Token", });
+    internal_static_helloworld_ChannelLastMsg_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_helloworld_ChannelLastMsg_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_helloworld_ChannelLastMsg_descriptor,
+        new java.lang.String[] { "Channel", "LastId", });
+    internal_static_helloworld_GRPCResponse_descriptor =
+      getDescriptor().getMessageTypes().get(3);
+    internal_static_helloworld_GRPCResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_helloworld_GRPCResponse_descriptor,
         new java.lang.String[] { "Message", });
   }
 

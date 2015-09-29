@@ -4,21 +4,21 @@
 package io.grpc.examples.helloworld;
 
 /**
- * Protobuf type {@code helloworld.HelloRequest}
+ * Protobuf type {@code helloworld.GRPCRequest}
  *
  * <pre>
  * The request message containing the user's name.
  * </pre>
  */
-public  final class HelloRequest extends
+public  final class GRPCRequest extends
     com.google.protobuf.GeneratedMessage implements
-    // @@protoc_insertion_point(message_implements:helloworld.HelloRequest)
-    HelloRequestOrBuilder {
-  // Use HelloRequest.newBuilder() to construct.
-  private HelloRequest(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    // @@protoc_insertion_point(message_implements:helloworld.GRPCRequest)
+    GRPCRequestOrBuilder {
+  // Use GRPCRequest.newBuilder() to construct.
+  private GRPCRequest(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
     super(builder);
   }
-  private HelloRequest() {
+  private GRPCRequest() {
     token_ = "";
     message_ = "";
   }
@@ -28,7 +28,7 @@ public  final class HelloRequest extends
   getUnknownFields() {
     return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
   }
-  private HelloRequest(
+  private GRPCRequest(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry) {
     this();
@@ -73,13 +73,14 @@ public  final class HelloRequest extends
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return io.grpc.examples.helloworld.HelloWorldProto.internal_static_helloworld_HelloRequest_descriptor;
+    return io.grpc.examples.helloworld.HelloWorldProto.internal_static_helloworld_GRPCRequest_descriptor;
   }
 
   protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return io.grpc.examples.helloworld.HelloWorldProto.internal_static_helloworld_HelloRequest_fieldAccessorTable
-        .ensureFieldAccessorsInitialized(io.grpc.examples.helloworld.HelloRequest.class, io.grpc.examples.helloworld.HelloRequest.Builder.class);
+    return io.grpc.examples.helloworld.HelloWorldProto.internal_static_helloworld_GRPCRequest_fieldAccessorTable
+        .ensureFieldAccessorsInitialized(
+            io.grpc.examples.helloworld.GRPCRequest.class, io.grpc.examples.helloworld.GRPCRequest.Builder.class);
   }
 
   public static final int TOKEN_FIELD_NUMBER = 1;
@@ -186,53 +187,53 @@ public  final class HelloRequest extends
   }
 
   private static final long serialVersionUID = 0L;
-  public static io.grpc.examples.helloworld.HelloRequest parseFrom(
+  public static io.grpc.examples.helloworld.GRPCRequest parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static io.grpc.examples.helloworld.HelloRequest parseFrom(
+  public static io.grpc.examples.helloworld.GRPCRequest parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static io.grpc.examples.helloworld.HelloRequest parseFrom(byte[] data)
+  public static io.grpc.examples.helloworld.GRPCRequest parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static io.grpc.examples.helloworld.HelloRequest parseFrom(
+  public static io.grpc.examples.helloworld.GRPCRequest parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static io.grpc.examples.helloworld.HelloRequest parseFrom(java.io.InputStream input)
+  public static io.grpc.examples.helloworld.GRPCRequest parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return PARSER.parseFrom(input);
   }
-  public static io.grpc.examples.helloworld.HelloRequest parseFrom(
+  public static io.grpc.examples.helloworld.GRPCRequest parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return PARSER.parseFrom(input, extensionRegistry);
   }
-  public static io.grpc.examples.helloworld.HelloRequest parseDelimitedFrom(java.io.InputStream input)
+  public static io.grpc.examples.helloworld.GRPCRequest parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return PARSER.parseDelimitedFrom(input);
   }
-  public static io.grpc.examples.helloworld.HelloRequest parseDelimitedFrom(
+  public static io.grpc.examples.helloworld.GRPCRequest parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return PARSER.parseDelimitedFrom(input, extensionRegistry);
   }
-  public static io.grpc.examples.helloworld.HelloRequest parseFrom(
+  public static io.grpc.examples.helloworld.GRPCRequest parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return PARSER.parseFrom(input);
   }
-  public static io.grpc.examples.helloworld.HelloRequest parseFrom(
+  public static io.grpc.examples.helloworld.GRPCRequest parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -243,7 +244,7 @@ public  final class HelloRequest extends
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(io.grpc.examples.helloworld.HelloRequest prototype) {
+  public static Builder newBuilder(io.grpc.examples.helloworld.GRPCRequest prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   public Builder toBuilder() {
@@ -258,7 +259,7 @@ public  final class HelloRequest extends
     return builder;
   }
   /**
-   * Protobuf type {@code helloworld.HelloRequest}
+   * Protobuf type {@code helloworld.GRPCRequest}
    *
    * <pre>
    * The request message containing the user's name.
@@ -266,20 +267,21 @@ public  final class HelloRequest extends
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessage.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:helloworld.HelloRequest)
-      io.grpc.examples.helloworld.HelloRequestOrBuilder {
+      // @@protoc_insertion_point(builder_implements:helloworld.GRPCRequest)
+      io.grpc.examples.helloworld.GRPCRequestOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return io.grpc.examples.helloworld.HelloWorldProto.internal_static_helloworld_HelloRequest_descriptor;
+      return io.grpc.examples.helloworld.HelloWorldProto.internal_static_helloworld_GRPCRequest_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return io.grpc.examples.helloworld.HelloWorldProto.internal_static_helloworld_HelloRequest_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(io.grpc.examples.helloworld.HelloRequest.class, io.grpc.examples.helloworld.HelloRequest.Builder.class);
+      return io.grpc.examples.helloworld.HelloWorldProto.internal_static_helloworld_GRPCRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              io.grpc.examples.helloworld.GRPCRequest.class, io.grpc.examples.helloworld.GRPCRequest.Builder.class);
     }
 
-    // Construct using io.grpc.examples.helloworld.HelloRequest.newBuilder()
+    // Construct using io.grpc.examples.helloworld.GRPCRequest.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -304,23 +306,23 @@ public  final class HelloRequest extends
 
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return io.grpc.examples.helloworld.HelloWorldProto.internal_static_helloworld_HelloRequest_descriptor;
+      return io.grpc.examples.helloworld.HelloWorldProto.internal_static_helloworld_GRPCRequest_descriptor;
     }
 
-    public io.grpc.examples.helloworld.HelloRequest getDefaultInstanceForType() {
-      return io.grpc.examples.helloworld.HelloRequest.getDefaultInstance();
+    public io.grpc.examples.helloworld.GRPCRequest getDefaultInstanceForType() {
+      return io.grpc.examples.helloworld.GRPCRequest.getDefaultInstance();
     }
 
-    public io.grpc.examples.helloworld.HelloRequest build() {
-            io.grpc.examples.helloworld.HelloRequest result = buildPartial();
+    public io.grpc.examples.helloworld.GRPCRequest build() {
+      io.grpc.examples.helloworld.GRPCRequest result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
       return result;
     }
 
-    public io.grpc.examples.helloworld.HelloRequest buildPartial() {
-            io.grpc.examples.helloworld.HelloRequest result = new io.grpc.examples.helloworld.HelloRequest(this);
+    public io.grpc.examples.helloworld.GRPCRequest buildPartial() {
+      io.grpc.examples.helloworld.GRPCRequest result = new io.grpc.examples.helloworld.GRPCRequest(this);
       result.token_ = token_;
       result.message_ = message_;
       onBuilt();
@@ -328,16 +330,16 @@ public  final class HelloRequest extends
     }
 
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof io.grpc.examples.helloworld.HelloRequest) {
-        return mergeFrom((io.grpc.examples.helloworld.HelloRequest)other);
+      if (other instanceof io.grpc.examples.helloworld.GRPCRequest) {
+        return mergeFrom((io.grpc.examples.helloworld.GRPCRequest)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(io.grpc.examples.helloworld.HelloRequest other) {
-      if (other == io.grpc.examples.helloworld.HelloRequest.getDefaultInstance()) return this;
+    public Builder mergeFrom(io.grpc.examples.helloworld.GRPCRequest other) {
+      if (other == io.grpc.examples.helloworld.GRPCRequest.getDefaultInstance()) return this;
       if (!other.getToken().isEmpty()) {
         token_ = other.token_;
         onChanged();
@@ -358,11 +360,11 @@ public  final class HelloRequest extends
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-            io.grpc.examples.helloworld.HelloRequest parsedMessage = null;
+      io.grpc.examples.helloworld.GRPCRequest parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.grpc.examples.helloworld.HelloRequest) e.getUnfinishedMessage();
+        parsedMessage = (io.grpc.examples.helloworld.GRPCRequest) e.getUnfinishedMessage();
         throw e;
       } finally {
         if (parsedMessage != null) {
@@ -520,27 +522,27 @@ public  final class HelloRequest extends
     }
 
 
-    // @@protoc_insertion_point(builder_scope:helloworld.HelloRequest)
+    // @@protoc_insertion_point(builder_scope:helloworld.GRPCRequest)
   }
 
-  // @@protoc_insertion_point(class_scope:helloworld.HelloRequest)
-  private static final io.grpc.examples.helloworld.HelloRequest DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:helloworld.GRPCRequest)
+  private static final io.grpc.examples.helloworld.GRPCRequest DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new io.grpc.examples.helloworld.HelloRequest();
+    DEFAULT_INSTANCE = new io.grpc.examples.helloworld.GRPCRequest();
   }
 
-  public static io.grpc.examples.helloworld.HelloRequest getDefaultInstance() {
+  public static io.grpc.examples.helloworld.GRPCRequest getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<HelloRequest>
-      PARSER = new com.google.protobuf.AbstractParser<HelloRequest>() {
-    public HelloRequest parsePartialFrom(
+  private static final com.google.protobuf.Parser<GRPCRequest>
+      PARSER = new com.google.protobuf.AbstractParser<GRPCRequest>() {
+    public GRPCRequest parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       try {
-        return new HelloRequest(input, extensionRegistry);
+        return new GRPCRequest(input, extensionRegistry);
       } catch (RuntimeException e) {
         if (e.getCause() instanceof
             com.google.protobuf.InvalidProtocolBufferException) {
@@ -552,16 +554,16 @@ public  final class HelloRequest extends
     }
   };
 
-  public static com.google.protobuf.Parser<HelloRequest> parser() {
+  public static com.google.protobuf.Parser<GRPCRequest> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<HelloRequest> getParserForType() {
+  public com.google.protobuf.Parser<GRPCRequest> getParserForType() {
     return PARSER;
   }
 
-  public io.grpc.examples.helloworld.HelloRequest getDefaultInstanceForType() {
+  public io.grpc.examples.helloworld.GRPCRequest getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

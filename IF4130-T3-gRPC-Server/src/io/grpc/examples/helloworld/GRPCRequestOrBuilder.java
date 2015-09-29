@@ -3,8 +3,8 @@
 
 package io.grpc.examples.helloworld;
 
-public interface HelloRequestOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:helloworld.HelloRequest)
+public interface GRPCRequestOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:helloworld.GRPCRequest)
     com.google.protobuf.MessageOrBuilder {
 
   /**
