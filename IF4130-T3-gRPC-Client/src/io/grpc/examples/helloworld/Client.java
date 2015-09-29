@@ -67,7 +67,10 @@ public class Client {
       channel.shutdown().awaitTermination(5, TimeUnit.SECONDS);
     }
 
-    /** Say hello to server. */
+    /** Say hello to server.
+     * @param name
+     * @param message
+     * @return  */
     public String greet(String name, String message) {
       try {
         GRPCRequest request = GRPCRequest.newBuilder()
@@ -87,10 +90,9 @@ public class Client {
       try {
         MessageRequest request = MessageRequest.newBuilder()
                                   .setToken(token)
+                                  .addAllClm(clm) 
                                   .build();
-        for (int i = 0; i < clm.size(); i++) {
-            request.newBuilder().addClm(clm.get(i)).build();
-        }
+        
         GRPCResponse response = blockingStub.getMessage(request);
           
         return response.getMessage();
@@ -151,7 +153,6 @@ public class Client {
                                                                 setLastId(0).build();
                     if (client.list.add(clm)) {
                         System.out.println("Sukses nambahin channel ke client");
-                        System.out.println(client.list.get(0).getChannel());
                     }
                     
                     break;
@@ -231,14 +232,19 @@ class PrintRunnable implements Runnable {
     }
     private static void lastIDIncrement(ArrayList<ChannelLastMsg> list, String channel) {
         Iterator<ChannelLastMsg> itr = list.iterator();
+        int index = 0;
         while(itr.hasNext())
         {
             ChannelLastMsg clm = (ChannelLastMsg)itr.next();
             if(clm.getChannel().equals(channel))
             {
-                clm.toBuilder().setLastId(clm.getLastId() + 1);
+                int last1 = clm.getLastId();
+                last1 = last1 + 1;
+                ChannelLastMsg neww = clm.toBuilder().setLastId(last1).build();
+                list.set(index, neww);
                 break;
             }
+            index++;
         }
     }
 }

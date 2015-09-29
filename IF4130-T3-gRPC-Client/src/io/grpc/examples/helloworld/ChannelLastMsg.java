@@ -121,6 +121,11 @@ public  final class ChannelLastMsg extends
     return lastId_;
   }
 
+  public void increaseLastId()
+  {
+      lastId_++;
+  }
+  
   private byte memoizedIsInitialized = -1;
   public final boolean isInitialized() {
     byte isInitialized = memoizedIsInitialized;

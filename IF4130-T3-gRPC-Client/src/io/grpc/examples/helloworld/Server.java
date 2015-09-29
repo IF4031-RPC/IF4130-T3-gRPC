@@ -101,7 +101,6 @@ public class Server {
       
       @Override
         public void getMessage(MessageRequest request, StreamObserver<GRPCResponse> responseObserver) {
-            
             GRPCResponse reply = GRPCResponse.newBuilder().setMessage(this.getMessage(request.getClmList(), request.getToken())).build();
             responseObserver.onValue(reply);
             responseObserver.onCompleted();
@@ -111,7 +110,7 @@ public class Server {
           if (token.equals("") && nick != null) {
               if (isNickExist(nick)) {
                   //nick exists
-                  return "Nick exists!";
+                  return "Nick exists. Please try another NICK!";
               }
               else {
                   //if nick doesn't exist
@@ -130,7 +129,7 @@ public class Server {
           }
           else {
               //already registered
-              return "Nick already registered.";
+              return "Nick already registered. Your nick is " + nick;
           }
       }
 
@@ -141,7 +140,7 @@ public class Server {
           {
               /* subscribe */
               this.subscribeChannel(token, channel);
-              return "Channel subscribed.";
+              return "You are subsribed to " + channel;
           }
           else
           {
@@ -150,7 +149,7 @@ public class Server {
 
               /* subscribe */
               this.subscribeChannel(token, channel);
-              return "Channel created and subscribed.";
+              return channel + "created and you are subsribed to it";
           }
       }
 
@@ -184,15 +183,6 @@ public class Server {
       public boolean saveToDB(String token, String channel, String message) {
           MongoCollection<Document> messageCollection = database.getCollection(channel+"Message");
           int lastId;
-  //        System.out.println(this.getLastMessageId(channel));
-  //        Document listMessage = new Document("messages",new Document("id", 3).append("nick", token).append("messsage", message));
-  //        Document updateQuery = new Document("$push", listMessage);
-  //        Document findQuery = new Document("name", channel);
-  //        channelCollection.updateOne(findQuery, updateQuery);
-
-  //        Document messageDoc = new Document("id", this.getLastMessageId(channel)).append("nick", token).append("message", message);
-  //        messageCollection.insertOne(messageDoc);
-
           try
           {
               lastId = this.getLastMessageId(channel);
@@ -224,10 +214,11 @@ public class Server {
               for(Document doc : iterable)
               {
   //                if(doc.getString("nick").equals(token))
-                      messages = messages + channelStruct.getChannel()+":@" + token + ' ' + doc.getString("message") + '\n';
+                      messages = messages + channelStruct.getChannel()+":@" + doc.getString("nick") + ' ' + doc.getString("message") + '\n';
   //                    System.out.println(doc.getString("message"));
               }
-          }   
+          }
+//          System.out.println("Messages: " + messages);
           return messages;
       }
 
